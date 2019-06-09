@@ -1,9 +1,19 @@
 console.disableYellowBox = true;
 import React, { Component } from "react";
-import { Text, StyleSheet, View, AsyncStorage } from "react-native";
-import { TextInput, Title, Button } from "react-native-paper";
+import {
+  Text,
+  StyleSheet,
+  View,
+  AsyncStorage,
+  TouchableOpacity,
+  Dimensions,
+  TextInput,
+  KeyboardAvoidingView
+} from "react-native";
 
 import firebase from "firebase";
+let width = Dimensions.get("window").width;
+let height = Dimensions.get("window").height;
 
 export default class SignIn extends Component {
   constructor(props) {
@@ -17,7 +27,7 @@ export default class SignIn extends Component {
   }
 
   AuthUserData = () => {
-    let { email, password, username } = this.state;
+    let { email, password } = this.state;
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
@@ -45,35 +55,33 @@ export default class SignIn extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Title>Sign In</Title>
+      <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
+        <Text style={styles.title}>YodaTify</Text>
 
         <TextInput
           style={styles.input}
-          label="Email"
+          placeholder="Email"
           value={this.state.email}
           onChangeText={email => this.setState({ email })}
         />
         <TextInput
           style={styles.input}
-          label="Username"
-          value={this.state.username}
-          onChangeText={username => this.setState({ username })}
-        />
-        <TextInput
-          style={styles.input}
-          label="Password"
+          placeholder="Password"
           value={this.state.password}
           onChangeText={password => this.setState({ password })}
         />
-        <Button
-          icon="account-circle"
-          mode="contained"
+        <TouchableOpacity
+          style={styles.button}
           onPress={() => this.AuthUserData()}
         >
-          Sign In
-        </Button>
-      </View>
+          <Text style={styles.textBtn}>Sign In</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate("SignUp")}
+        >
+          <Text style={styles.text}>Register ?</Text>
+        </TouchableOpacity>
+      </KeyboardAvoidingView>
     );
   }
 }
@@ -81,9 +89,61 @@ export default class SignIn extends Component {
 const styles = StyleSheet.create({
   input: {
     backgroundColor: "#fff",
-    marginTop: 10
+    marginTop: 20,
+    width: width - 50,
+    alignItems: "center",
+    borderRadius: 10,
+    padding: 15,
+    fontSize: 15,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84
+  },
+  button: {
+    borderColor: "#735638",
+    borderWidth: 3,
+    width: width - 50,
+    padding: 10,
+    borderRadius: 20,
+    alignItems: "center",
+    marginTop: 40,
+    shadowColor: "#735638",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84
+  },
+  textBtn: {
+    fontSize: 20,
+    color: "#735638",
+    fontWeight: "bold"
   },
   container: {
-    marginTop: 20
+    justifyContent: "center",
+    alignItems: "center",
+    flex: 1
+  },
+  title: {
+    fontSize: 40,
+    color: "#735638",
+    fontWeight: "bold",
+    marginBottom: 20,
+    shadowColor: "#735638",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84
+  },
+  text: {
+    marginTop: 20,
+    color: "#735638"
   }
 });

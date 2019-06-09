@@ -75,13 +75,15 @@ export default class Profil extends React.Component {
     let { currentUser, fav } = this.state;
     return (
       <View style={styles.container}>
+        <Text style={styles.title}>Welcome</Text>
         <View style={styles.image}>
-          <Image source={profilImage} style={{ width: 200, height: 200 }} />
+          <Image source={profilImage} style={{ width: 150, height: 150 }} />
         </View>
-        <Title>{currentUser.username}</Title>
-        <Title>Your Favorites</Title>
 
-        <ListFav fav={fav} speak={this._speak} />
+        <Text style={styles.title}>Your Favorites</Text>
+        <View style={styles.listFav}>
+          <ListFav fav={fav} speak={this._speak} />
+        </View>
       </View>
     );
   }
@@ -89,8 +91,8 @@ export default class Profil extends React.Component {
 
 const styles = StyleSheet.create({
   image: {
-    width: 200,
-    height: 200,
+    width: 150,
+    height: 150,
     borderRadius: 100,
     shadowColor: "#000",
     shadowOffset: {
@@ -105,7 +107,24 @@ const styles = StyleSheet.create({
   },
   container: {
     justifyContent: "center",
-    alignItems: "center",
-    marginTop: 30
+    marginTop: 30,
+    alignItems: "center"
+  },
+  title: {
+    fontSize: 25,
+    color: "#735638",
+    fontWeight: "bold",
+    marginBottom: 20,
+    marginTop: 20,
+    shadowColor: "#735638",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.46,
+    shadowRadius: 11.14
+  },
+  listFav: {
+    height: height - 350
   }
 });

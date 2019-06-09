@@ -25,7 +25,8 @@ const Auth = createStackNavigator(
     SignUp: { screen: SignUp }
   },
   {
-    initialRouteName: "SignIn"
+    initialRouteName: "SignIn",
+    headerMode: "none"
   }
 );
 
@@ -34,7 +35,12 @@ const TabNavigator = createBottomTabNavigator(
     Profil: Profil,
     Translate: Translate
   },
-  { initialRouteName: "Profil" }
+  { initialRouteName: "Profil" },
+  {
+    navigationOptions: {
+      header: null
+    }
+  }
 );
 
 export default createAppContainer(

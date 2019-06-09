@@ -20,9 +20,11 @@ export const ListFav = ({ fav, speak }) => (
     keyExtractor={(item, index) => index.toString()}
     renderItem={({ item, idx }) => (
       <View style={styles.item} key={item[idx]}>
-        <Text style={styles.sentence}>{item}</Text>
+        <Text numberOfLines={1} style={styles.sentence}>
+          {item}
+        </Text>
         <TouchableOpacity onPress={() => speak(item)}>
-          <Icon name="keyboard-voice" />
+          <Icon name="keyboard-voice" color="#8D8E49" />
         </TouchableOpacity>
       </View>
     )}
@@ -40,10 +42,11 @@ const styles = StyleSheet.create({
     borderColor: "#d2D2D2"
   },
   sentence: {
-    fontSize: 20
+    fontSize: 20,
+    flex: 1,
+    color: "#A79B83"
   },
   container: {
-    marginTop: 20,
     height: 450
   }
 });
