@@ -66,6 +66,7 @@ export default class SignIn extends Component {
         />
         <TextInput
           style={styles.input}
+          secureTextEntry={true}
           placeholder="Password"
           value={this.state.password}
           onChangeText={password => this.setState({ password })}

@@ -19,7 +19,7 @@ import volume from "../assets/volume.png";
 import { Constants, Speech } from "expo";
 import axios from "axios";
 import firebase from "firebase";
-import { configApi } from "../config";
+import { configApi } from "../apiConfig";
 
 let width = Dimensions.get("window").width;
 let height = Dimensions.get("window").height;
