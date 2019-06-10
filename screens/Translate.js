@@ -19,6 +19,7 @@ import volume from "../assets/volume.png";
 import { Constants, Speech } from "expo";
 import axios from "axios";
 import firebase from "firebase";
+import { configApi } from "../config";
 
 let width = Dimensions.get("window").width;
 let height = Dimensions.get("window").height;
@@ -75,7 +76,7 @@ export default class Translate extends Component {
         method: "post",
         url: `${BASE_URL}?text=${this.state.text}`,
         headers: {
-          "X-RapidAPI-Key": `605b5d07d4mshdc3646da210b51bp154162jsn6828e4df176b`,
+          "X-RapidAPI-Key": `${configApi.apiKey}`,
           "X-RapidAPI-Host": "yodish.p.rapidapi.com",
           "Content-Type": "application/x-www-form-urlencoded"
         }
