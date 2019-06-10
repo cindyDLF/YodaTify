@@ -38,7 +38,7 @@ export default class SignUp extends Component {
           // Handle Errors here.
           const errorCode = error.code;
           const errorMessage = error.message;
-          console.log(errorMessage);
+          alert(errorMessage);
           // ...
         });
     } catch (err) {

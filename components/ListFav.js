@@ -24,7 +24,7 @@ export const ListFav = ({ fav, speak }) => (
           {item}
         </Text>
         <TouchableOpacity onPress={() => speak(item)}>
-          <Icon name="keyboard-voice" color="#8D8E49" />
+          <Icon name="keyboard-voice" color="#fff" />
         </TouchableOpacity>
       </View>
     )}
@@ -34,19 +34,21 @@ export const ListFav = ({ fav, speak }) => (
 const styles = StyleSheet.create({
   item: {
     width: width,
-    padding: 20,
+    padding: 15,
     flexDirection: "row",
     justifyContent: "space-between",
     borderBottomWidth: 1,
     borderTopWidth: 1,
-    borderColor: "#d2D2D2"
+    borderColor: "#d2D2D2",
+    backgroundColor: "#A79B83"
   },
   sentence: {
     fontSize: 20,
     flex: 1,
-    color: "#A79B83"
+    color: "#fff"
   },
   container: {
-    height: 450
+    height: 400,
+    flex: 1
   }
 });

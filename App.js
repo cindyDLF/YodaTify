@@ -35,7 +35,7 @@ const TabNavigator = createBottomTabNavigator(
     Profil: Profil,
     Translate: Translate
   },
-  { initialRouteName: "Profil" },
+  { initialRouteName: "Translate" },
   {
     navigationOptions: {
       header: null

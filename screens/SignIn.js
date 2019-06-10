@@ -40,7 +40,7 @@ export default class SignIn extends Component {
             this.setState({ currentUser: storage }, () => {
               AsyncStorage.setItem("@user", this.state.currentUser);
 
-              this.props.navigation.navigate("Profil");
+              this.props.navigation.navigate("Translate");
             });
           });
       })
@@ -48,7 +48,7 @@ export default class SignIn extends Component {
         // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorMessage);
+        alert(errorMessage);
         // ...
       });
   };

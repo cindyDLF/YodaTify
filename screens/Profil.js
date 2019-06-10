@@ -11,7 +11,6 @@ import {
 } from "react-native";
 
 import { Constants, Speech } from "expo";
-import { Title } from "react-native-paper";
 
 import profilImage from "../assets/yoda_profil.png";
 import { Container } from "../components/Container";
