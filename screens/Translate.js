@@ -76,7 +76,7 @@ export default class Translate extends Component {
         method: "post",
         url: `${BASE_URL}?text=${this.state.text}`,
         headers: {
-          "X-RapidAPI-Key": `${configApi.apiKey}`,
+          "X-RapidAPI-Key": `${configApi.API_KEY}`,
           "X-RapidAPI-Host": "yodish.p.rapidapi.com",
           "Content-Type": "application/x-www-form-urlencoded"
         }
@@ -177,8 +177,6 @@ export default class Translate extends Component {
 
   render() {
     let { currentUser, oldFav, fav } = this.state;
-    console.log(fav);
-    console.log(oldFav);
     return (
       <DismissKeyboard>
         <ScrollView>

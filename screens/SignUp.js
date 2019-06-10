@@ -31,7 +31,6 @@ export default class SignUp extends Component {
         .auth()
         .createUserWithEmailAndPassword(email, password)
         .then(response => {
-          console.log(response.user.uid);
           this.createUserDb(email, username, password, response.user.uid);
         })
         .catch(function(error) {
@@ -57,7 +56,6 @@ export default class SignUp extends Component {
       })
       .then(data => {
         this.props.navigation.navigate("SignIn");
-        console.log("data ", data);
       })
       .catch(error => {
         //error callback
