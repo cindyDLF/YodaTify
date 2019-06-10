@@ -13,7 +13,7 @@ import {
 import { Constants, Speech } from "expo";
 
 import profilImage from "../assets/yoda_profil.png";
-import { Container } from "../components/Container";
+
 import { ListFav } from "../components/ListFav";
 import firebase from "firebase";
 let arrFav = [];

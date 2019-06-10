@@ -9,6 +9,7 @@ import {
 import firebase from "firebase";
 import { config } from "./config";
 
+import { FontAwesome } from "react-native-vector-icons";
 import SignIn from "./screens/SignIn";
 import SignUp from "./screens/SignUp";
 import Profil from "./screens/Profil";
@@ -32,10 +33,31 @@ const Auth = createStackNavigator(
 
 const TabNavigator = createBottomTabNavigator(
   {
-    Profil: Profil,
-    Translate: Translate
+    Profil: {
+      screen: Profil,
+      navigationOptions: {
+        tabBarLabel: "Favorites",
+        tabBarIcon: () => <FontAwesome name="star" size={30} color="#fff" />
+      }
+    },
+    Translate: {
+      screen: Translate,
+      navigationOptions: {
+        tabBarLabel: "Translator",
+        tabBarIcon: () => <FontAwesome name="exchange" size={30} color="#fff" />
+      }
+    }
   },
-  { initialRouteName: "Translate" },
+  {
+    initialRouteName: "Translate",
+    tabBarOptions: {
+      activeTintColor: "#fff",
+      inactiveTintColor: "#D2D2D2",
+      style: {
+        backgroundColor: "#8D8E49"
+      }
+    }
+  },
   {
     navigationOptions: {
       header: null
